@@ -1,5 +1,5 @@
 /* Contenedor principal */
-#tracks {
+#tracks,#products {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 25px;
@@ -23,6 +23,16 @@
     min-height: 180px;
 }
 
+.label {                   /* la palabra "Precio" / "Ventas" */
+    display: inline-block;
+    min-width: 70px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #3498db;
+}
+
 /* Efecto al pasar el ratón: se eleva y resalta el borde */
 .track-card:hover {
     transform: translateY(-10px);
@@ -32,7 +42,7 @@
 
 /* Decoración: Un pequeño círculo de color de fondo */
 .track-card::before {
-    content: "🎵";
+    content: "";
     position: absolute;
     top: -10px;
     right: -10px;
@@ -60,7 +70,7 @@
 }
 
 .track-card p::before {
-    content: "👤";
+    content: "";
     margin-right: 8px;
     font-size: 0.9rem;
 }
