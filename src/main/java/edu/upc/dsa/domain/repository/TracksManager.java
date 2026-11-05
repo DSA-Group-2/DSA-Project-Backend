@@ -1,6 +1,8 @@
 package edu.upc.dsa.domain.repository;
 
 import edu.upc.dsa.exceptions.TrackNotFoundException;
+import edu.upc.dsa.exceptions.UserNotFoundException;
+import edu.upc.dsa.exceptions.EmptyQueueException;
 import edu.upc.dsa.domain.models.Track;
 
 import java.util.List;
