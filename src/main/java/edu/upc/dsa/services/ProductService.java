@@ -12,6 +12,7 @@ import edu.upc.dsa.domain.repository.Products.ProductManagerImpl;
 
 import edu.upc.dsa.exceptions.EmptyQueueException;
 import edu.upc.dsa.exceptions.UserNotFoundException;
+import edu.upc.dsa.util.RandomUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -173,6 +174,12 @@ public class ProductService {
             return Response.status(500).entity(product).build();
         }
 
+        if (product.getId() == null || product.getId().trim().isEmpty())
+        {
+            product.setId(RandomUtils.getId());
+        }
+
+
         if (this.pm.getProduct(product.getId()) != null)
         {
             return Response.status(500).entity(product).build();
@@ -198,6 +205,12 @@ public class ProductService {
         if (order == null || order.getDni() == null
                 || order.getProductList() == null || order.getProductList().isEmpty())
             return Response.status(500).build();
+
+        for (Integer cantidad : order.getProductList().values())
+        {
+            if (cantidad == null || cantidad <= 0)
+                return Response.status(500).build();
+        }
 
         if (this.pm.getUser(order.getDni()) == null)
             return Response.status(404).build();

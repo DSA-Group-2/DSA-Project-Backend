@@ -54,10 +54,11 @@ public class ProductManagerImpl implements ProductManager {
     @Override
     public List<Product> getProductsByPriceDescendiente()
     {
+        List<Product> copia = new ArrayList<>(productList);
 
-        productList.sort(Comparator.comparing(Product::getPrice).reversed());
+        copia.sort(Comparator.comparing(Product::getPrice).reversed());
 
-        return productList;
+        return copia;
     }
 
     @Override
