@@ -58,30 +58,30 @@ public class Main {
         ProductManager pm = ProductManagerImpl.getInstance();
 
         if (pm.numProducts()==0) {
-            pm.addProduct("C1", "Coca-cola zero", 2);
-            pm.addProduct("C2", "Coca-cola", 2.5);
-            pm.addProduct("B1", "Lomo queso", 3);
-            pm.addProduct("B2", "bacon queso", 3.5);
-            pm.addProduct("D1", "Donut", 3);
-            pm.addProduct("D2", "Donut xoco", 3.5);
-            pm.addProduct("CF1", "Cafe", 2);
-            pm.addProduct("CF2", "Tallat", 2.25);
+            pm.addProduct("C1", "Espada", 2, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBPOUe7I-v5GXcX5CAtebKhDT_MfWhIybJV-9v6_6V0g&s=10");
+            pm.addProduct("C2", "Cargador de pistola", 2.5, "https://en.specshop.pl/hpeciai/1076c6e2f5a26d10565d17d875660c63/eng_pm_Glock-Pistol-Magazine-for-Glock-9x19-mm-Luger-Parabellum-31-2-rounds-4450-41776_2.jpg");
+            pm.addProduct("B1", "Botiquin", 3, "https://static.wikia.nocookie.net/fortnite/images/b/b1/Medkit_-_Item_-_Fortnite.png/revision/latest/thumbnail/width/360/height/360?cb=20180917023707");
+            pm.addProduct("B2", "Granada", 3.5, "https://static.wikia.nocookie.net/fortnite/images/4/4d/Grenade_%28v11.00%29_-_Item_-_Fortnite.png/revision/latest?cb=20200312041058");
+            pm.addProduct("D1", "Mejora de linterna", 3, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdb9C4yPYRkoytdaqhCf2Mydt3Lm_-Nhe0lBgdzoKhhQ&s=10");
+            pm.addProduct("D2", "Pistola láser", 3.5, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3XjobCqzBmqUQJJl0_MBpm4SL_74W2Hw4vIDrIm6kpCEehYRKA_yyHbI&s=10");
+            //pm.addProduct("CF1", "Cafe", 2);
+            //pm.addProduct("CF2", "Tallat", 2.25);
 
-            pm.addUser("NIF1", "El Chaval", "de la Peca", "chaval.peca@gmail.com");
-            pm.addUser("NIF2", "Manolo", "Vinilo", "manolo.vinilo@gmail.com");
-            pm.addUser("NIF3", "Paco", "Synth", "paco.synth@gmail.com");
-            pm.addUser("NIF4", "Rafa", "Theremín", "rafa.theremin@gmail.com");
-            pm.addUser("NIF5", "Lola", "Neón", "lola.neon@gmail.com");
-            pm.addUser("NIF6", "Toni", "Cassette", "toni.cassette@gmail.com");
-            pm.addUser("NIF7", "Juanjo", "Kazoo", "juanjo.kazoo@gmail.com");
-            pm.addUser("NIF8", "Santi", "Prog", "santi.prog@gmail.com");
-            pm.addUser("NIF9", "Marta", "Moog", "marta.moog@gmail.com");
-            pm.addUser("NIF10", "Carlos", "Distorsión", "carlos.distorsion@gmail.com");
-            pm.addUser("NIF11", "Nuria", "Vinilo", "nuria.vinilo@gmail.com");
-            pm.addUser("NIF12", "Óscar", "Synthwave", "oscar.synthwave@gmail.com");
-            pm.addUser("NIF13", "David", "Frikipop", "david.frikipop@gmail.com");
-            pm.addUser("NIF14", "Miguel", "Guitarra", "miguel.guitarra@gmail.com");
-            pm.addUser("NIF15", "Ferran", "Rockabilly", "ferran.rockabilly@gmail.com");
+            pm.addUser("NIF1", "El Chaval", "de la Peca", "chaval.peca@gmail.com", null);
+            pm.addUser("NIF2", "Manolo", "Vinilo", "manolo.vinilo@gmail.com", null);
+            pm.addUser("NIF3", "Paco", "Synth", "paco.synth@gmail.com", null);
+            pm.addUser("NIF4", "Rafa", "Theremín", "rafa.theremin@gmail.com", null);
+            pm.addUser("NIF5", "Lola", "Neón", "lola.neon@gmail.com", null);
+            pm.addUser("NIF6", "Toni", "Cassette", "toni.cassette@gmail.com", null);
+            pm.addUser("NIF7", "Juanjo", "Kazoo", "juanjo.kazoo@gmail.com", null);
+            pm.addUser("NIF8", "Santi", "Prog", "santi.prog@gmail.com", null);
+            pm.addUser("NIF9", "Marta", "Moog", "marta.moog@gmail.com", null);
+            pm.addUser("NIF10", "Carlos", "Distorsión", "carlos.distorsion@gmail.com", null);
+            pm.addUser("NIF11", "Nuria", "Vinilo", "nuria.vinilo@gmail.com", null);
+            pm.addUser("NIF12", "Óscar", "Synthwave", "oscar.synthwave@gmail.com", null);
+            pm.addUser("NIF13", "David", "Frikipop", "david.frikipop@gmail.com", null);
+            pm.addUser("NIF14", "Miguel", "Guitarra", "miguel.guitarra@gmail.com", null);
+            pm.addUser("NIF15", "Ferran", "Rockabilly", "ferran.rockabilly@gmail.com", null);
         }
     }
 

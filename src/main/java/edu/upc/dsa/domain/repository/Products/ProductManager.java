@@ -12,8 +12,8 @@ import java.util.List;
 
 public interface ProductManager {
 
-    void addUser(String nif, String name, String surname, String mail);
-    void addProduct(String id, String name, double price);
+    void addUser(String nif, String name, String surname, String mail, String password);
+    void addProduct(String id, String name, double price, String image_url);
     void addOrder(Order order);
 
     List<Product> getProductsByPriceDescendiente();
@@ -38,6 +38,8 @@ public interface ProductManager {
     Product updateProduct(Product product);
 
     HashMap<String, User> findAllUsers();
+    void deleteUser(String nif);
+    User updateUser(User user);
 
 
 }

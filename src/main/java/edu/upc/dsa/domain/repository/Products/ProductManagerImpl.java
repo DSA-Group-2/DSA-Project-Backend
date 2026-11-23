@@ -45,10 +45,10 @@ public class ProductManagerImpl implements ProductManager {
 
 
     @Override
-    public void addProduct(String id, String name, double price)
+    public void addProduct(String id, String name, double price, String image_url)
     {
-
-        productList.add(new Product(id, name, price));
+        String new_img = (image_url == null) ?  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3Que9LXyPA6IIbCMI26m6wcrQiyqDbIT9YpnO9xNRaA&s=10" : image_url;
+        productList.add(new Product(id, name, price,  new_img));
     }
 
     @Override
@@ -212,9 +212,9 @@ public class ProductManagerImpl implements ProductManager {
     }
 
     @Override
-    public void addUser(String nif, String name, String surname, String mail)
+    public void addUser(String nif, String name, String surname, String mail, String password)
     {
-        users.put(nif, new User(nif, name, surname, mail));
+        users.put(nif, new User(nif, name, surname, mail, password));
 
     }
 
@@ -243,6 +243,24 @@ public class ProductManagerImpl implements ProductManager {
 
         this.productList.remove(t);
 
+    }
+
+    @Override
+    public void deleteUser(String nif) {
+
+        User t = this.getUser(nif);
+        if (t==null) {
+            logger.warn("not found " + t);
+        }
+        else logger.info(t+" deleted ");
+
+        this.productList.remove(t);
+
+    }
+
+    @Override
+    public User updateUser(User user) {
+        return null;
     }
 
     @Override

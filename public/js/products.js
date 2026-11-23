@@ -21,6 +21,8 @@ async function fetchProducts(path, containerId) {
                     <p><span class="label">Name:</span> ${product.name || 'Unknown Product'}</p>
                     <p><span class="label">Price:</span> ${product.price || 'Unknown Price'}</p>
                     <p><span class="label">Sales:</span> ${product.sales || 'Unknown Sales'}</p>
+                    <img src="${product.image_url}" alt=""></img>
+                    
 
                     <small>Ref: ${product.id}</small>
                 `;

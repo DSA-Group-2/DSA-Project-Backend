@@ -22,30 +22,30 @@ public class ProductManagerTest {
         //pm = new ProductManagerImpl();
         this.pm = ProductManagerImpl.getInstance();
 
-        pm.addProduct("C1", "Coca-cola zero", 2);
-        pm.addProduct("C2", "Coca-cola", 2.5);
-        pm.addProduct("B1", "Lomo queso", 3);
-        pm.addProduct("B2", "bacon queso", 3.5);
-        pm.addProduct("D1", "Donut", 3);
-        pm.addProduct("D2", "Donut xoco", 3.5);
-        pm.addProduct("CF1", "Cafe", 2);
-        pm.addProduct("CF2", "Tallat", 2.25);
+        pm.addProduct("C1", "Coca-cola zero", 2, null);
+        pm.addProduct("C2", "Coca-cola", 2.5, null);
+        pm.addProduct("B1", "Lomo queso", 3, null);
+        pm.addProduct("B2", "bacon queso", 3.5,  null);
+        pm.addProduct("D1", "Donut", 3,  null);
+        pm.addProduct("D2", "Donut xoco", 3.5,   null);
+        pm.addProduct("CF1", "Cafe", 2,   null);
+        pm.addProduct("CF2", "Tallat", 2.25, null);
 
-        pm.addUser("NIF1", "El Chaval", "de la Peca", "chaval.peca@gmail.com");
-        pm.addUser("NIF2", "Manolo", "Vinilo", "manolo.vinilo@gmail.com");
-        pm.addUser("NIF3", "Paco", "Synth", "paco.synth@gmail.com");
-        pm.addUser("NIF4", "Rafa", "Theremín", "rafa.theremin@gmail.com");
-        pm.addUser("NIF5", "Lola", "Neón", "lola.neon@gmail.com");
-        pm.addUser("NIF6", "Toni", "Cassette", "toni.cassette@gmail.com");
-        pm.addUser("NIF7", "Juanjo", "Kazoo", "juanjo.kazoo@gmail.com");
-        pm.addUser("NIF8", "Santi", "Prog", "santi.prog@gmail.com");
-        pm.addUser("NIF9", "Marta", "Moog", "marta.moog@gmail.com");
-        pm.addUser("NIF10", "Carlos", "Distorsión", "carlos.distorsion@gmail.com");
-        pm.addUser("NIF11", "Nuria", "Vinilo", "nuria.vinilo@gmail.com");
-        pm.addUser("NIF12", "Óscar", "Synthwave", "oscar.synthwave@gmail.com");
-        pm.addUser("NIF13", "David", "Frikipop", "david.frikipop@gmail.com");
-        pm.addUser("NIF14", "Miguel", "Guitarra", "miguel.guitarra@gmail.com");
-        pm.addUser("NIF15", "Ferran", "Rockabilly", "ferran.rockabilly@gmail.com");
+        pm.addUser("NIF1", "El Chaval", "de la Peca", "chaval.peca@gmail.com", null);
+        pm.addUser("NIF2", "Manolo", "Vinilo", "manolo.vinilo@gmail.com", null);
+        pm.addUser("NIF3", "Paco", "Synth", "paco.synth@gmail.com", null);
+        pm.addUser("NIF4", "Rafa", "Theremín", "rafa.theremin@gmail.com", null);
+        pm.addUser("NIF5", "Lola", "Neón", "lola.neon@gmail.com", null);
+        pm.addUser("NIF6", "Toni", "Cassette", "toni.cassette@gmail.com", null);
+        pm.addUser("NIF7", "Juanjo", "Kazoo", "juanjo.kazoo@gmail.com", null);
+        pm.addUser("NIF8", "Santi", "Prog", "santi.prog@gmail.com", null);
+        pm.addUser("NIF9", "Marta", "Moog", "marta.moog@gmail.com", null);
+        pm.addUser("NIF10", "Carlos", "Distorsión", "carlos.distorsion@gmail.com", null);
+        pm.addUser("NIF11", "Nuria", "Vinilo", "nuria.vinilo@gmail.com", null);
+        pm.addUser("NIF12", "Óscar", "Synthwave", "oscar.synthwave@gmail.com", null);
+        pm.addUser("NIF13", "David", "Frikipop", "david.frikipop@gmail.com", null);
+        pm.addUser("NIF14", "Miguel", "Guitarra", "miguel.guitarra@gmail.com", null);
+        pm.addUser("NIF15", "Ferran", "Rockabilly", "ferran.rockabilly@gmail.com", null);
     }
 
     @After
@@ -58,17 +58,17 @@ public class ProductManagerTest {
     @Test
     public void addProductTest() {
         Assert.assertEquals(8, pm.numProducts());
-        pm.addProduct("W1", "Aigua", 1.5);
-        pm.addProduct("W2", "Aigua amb gas", 2.5);
+        pm.addProduct("W1", "Aigua", 1.5, null);
+        pm.addProduct("W2", "Aigua amb gas", 2.5, null);
         Assert.assertEquals(10, pm.numProducts());
     }
 
     @Test
     public void addUserTest() {
         Assert.assertEquals(15, pm.numUsers());
-        pm.addUser("NIF16", "Pepe", "Electrónico", "pepe.electronico@gmail.com");
+        pm.addUser("NIF16", "Pepe", "Electrónico", "pepe.electronico@gmail.com", null);
 
-        pm.addUser("NIF17", "Ramón", "Distorsión", "ramon.distorsion@gmail.com");
+        pm.addUser("NIF17", "Ramón", "Distorsión", "ramon.distorsion@gmail.com", null);
         Assert.assertEquals(17, pm.numUsers());
     }
 

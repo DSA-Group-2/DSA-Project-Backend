@@ -13,13 +13,18 @@ public class User {
 
     private List<Order> ordersUser;
 
-    public User(String nif, String name, String surname, String mail)
+    private String password;
+
+
+    public User(String nif, String name, String surname, String mail, String password)
     {
         this.nif = nif;
         this.name = name;
         this.surname = surname;
         this.mail = mail;
         this.ordersUser = new LinkedList<>();
+        this.password = password;
+
 
     }
 
@@ -32,6 +37,8 @@ public class User {
     public String  getName() {return name;}
     public String getSurname() {return surname;}
     public String getMail() {return mail;}
+    public String getPassword() {return password;}
+
 
 
     public List<Order> getUserOrders()

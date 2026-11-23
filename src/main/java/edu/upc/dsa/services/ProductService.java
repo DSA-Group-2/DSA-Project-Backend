@@ -185,7 +185,7 @@ public class ProductService {
             return Response.status(500).entity(product).build();
         }
 
-        this.pm.addProduct(product.getId(), product.getName(), product.getPrice());
+        this.pm.addProduct(product.getId(), product.getName(), product.getPrice(), product.getImage_url());
         return Response.status(201).entity(product).build();
     }
 
