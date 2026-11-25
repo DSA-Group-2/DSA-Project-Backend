@@ -1,6 +1,7 @@
 package edu.upc.dsa.services;
 
 
+import edu.upc.dsa.domain.models.Credentials;
 import edu.upc.dsa.domain.models.Order;
 import edu.upc.dsa.domain.models.Product;
 import edu.upc.dsa.domain.models.User;
@@ -32,6 +33,21 @@ public class UserService {
     {
         this.pm = ProductManagerImpl.getInstance();
 
+    }
+
+    @POST
+    @ApiOperation(value = "login", notes = "Comprobar usuario y contraseña")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Login correcto"),
+            @ApiResponse(code = 401, message = "Credenciales incorrectas")
+    })
+    @Path("/login")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response login(Credentials credentials) {
+        if (this.pm.checkLogin(credentials.getName(), credentials.getPassword())) {
+            return Response.status(200).build();
+        }
+        return Response.status(401).build();
     }
 
     @GET
@@ -93,7 +109,7 @@ public class UserService {
             @ApiResponse(code = 201, message = "Successful"),
             @ApiResponse(code = 404, message = "Producto not found")
     })
-    @Path("/{id}")
+    @Path("/{nif}")
     public Response deleteUser(@PathParam("nif") String nif) {
         User t = this.pm.getUser(nif);
         if (t == null) return Response.status(404).build();
@@ -140,7 +156,7 @@ public class UserService {
         }
 
 
-        this.pm.addUser(user.getNif(), user.getName(), user.getSurname(), user.getMail(), user.getPassword());
+        this.pm.addUser(user.getNif(), user.getName(), user.getSurname(), user.getMail(), user.getPassword(), user.getDinero());
         return Response.status(201).entity(user).build();
     }
 

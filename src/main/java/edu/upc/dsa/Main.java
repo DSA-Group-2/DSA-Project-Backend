@@ -67,21 +67,21 @@ public class Main {
             //pm.addProduct("CF1", "Cafe", 2);
             //pm.addProduct("CF2", "Tallat", 2.25);
 
-            pm.addUser("NIF1", "El Chaval", "de la Peca", "chaval.peca@gmail.com", null);
-            pm.addUser("NIF2", "Manolo", "Vinilo", "manolo.vinilo@gmail.com", null);
-            pm.addUser("NIF3", "Paco", "Synth", "paco.synth@gmail.com", null);
-            pm.addUser("NIF4", "Rafa", "Theremín", "rafa.theremin@gmail.com", null);
-            pm.addUser("NIF5", "Lola", "Neón", "lola.neon@gmail.com", null);
-            pm.addUser("NIF6", "Toni", "Cassette", "toni.cassette@gmail.com", null);
-            pm.addUser("NIF7", "Juanjo", "Kazoo", "juanjo.kazoo@gmail.com", null);
-            pm.addUser("NIF8", "Santi", "Prog", "santi.prog@gmail.com", null);
-            pm.addUser("NIF9", "Marta", "Moog", "marta.moog@gmail.com", null);
-            pm.addUser("NIF10", "Carlos", "Distorsión", "carlos.distorsion@gmail.com", null);
-            pm.addUser("NIF11", "Nuria", "Vinilo", "nuria.vinilo@gmail.com", null);
-            pm.addUser("NIF12", "Óscar", "Synthwave", "oscar.synthwave@gmail.com", null);
-            pm.addUser("NIF13", "David", "Frikipop", "david.frikipop@gmail.com", null);
-            pm.addUser("NIF14", "Miguel", "Guitarra", "miguel.guitarra@gmail.com", null);
-            pm.addUser("NIF15", "Ferran", "Rockabilly", "ferran.rockabilly@gmail.com", null);
+            pm.addUser("NIF1", "El Chaval", "de la Peca", "chaval.peca@gmail.com", null, 500);
+            pm.addUser("NIF2", "Manolo", "Vinilo", "manolo.vinilo@gmail.com", "123", 300);
+            pm.addUser("NIF3", "Paco", "Synth", "paco.synth@gmail.com", null, 60);
+            pm.addUser("NIF4", "Rafa", "Theremín", "rafa.theremin@gmail.com", null, 40);
+            pm.addUser("NIF5", "Lola", "Neón", "lola.neon@gmail.com", null, 100);
+            pm.addUser("NIF6", "Toni", "Cassette", "toni.cassette@gmail.com", null, 220);
+            pm.addUser("NIF7", "Juanjo", "Kazoo", "juanjo.kazoo@gmail.com", null, 140);
+            pm.addUser("NIF8", "Santi", "Prog", "santi.prog@gmail.com", null, 330);
+            pm.addUser("NIF9", "Marta", "Moog", "marta.moog@gmail.com", null, 55);
+            pm.addUser("NIF10", "Carlos", "Distorsión", "carlos.distorsion@gmail.com", null, 85);
+            pm.addUser("NIF11", "Nuria", "Vinilo", "nuria.vinilo@gmail.com", null, 90);
+            pm.addUser("NIF12", "Óscar", "Synthwave", "oscar.synthwave@gmail.com", null, 80);
+            pm.addUser("NIF13", "David", "Frikipop", "david.frikipop@gmail.com", null, 440);
+            pm.addUser("NIF14", "Miguel", "Guitarra", "miguel.guitarra@gmail.com", null, 105);
+            pm.addUser("NIF15", "Ferran", "Rockabilly", "ferran.rockabilly@gmail.com", null, 170);
         }
     }
 

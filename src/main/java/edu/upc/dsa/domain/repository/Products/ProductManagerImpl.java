@@ -21,8 +21,6 @@ public class ProductManagerImpl implements ProductManager {
 
     final static Logger logger = Logger.getLogger(ProductManagerImpl.class);
 
-
-
     private ProductManagerImpl()
     {
         productList = new ArrayList<>();
@@ -43,6 +41,15 @@ public class ProductManagerImpl implements ProductManager {
         this.users.clear();
     }
 
+    @Override
+    public boolean checkLogin(String name, String password) {
+        for (User u : this.users.values()) {
+            if (u.getName().equals(name) && u.getPassword().equals(password)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     @Override
     public void addProduct(String id, String name, double price, String image_url)
@@ -212,9 +219,9 @@ public class ProductManagerImpl implements ProductManager {
     }
 
     @Override
-    public void addUser(String nif, String name, String surname, String mail, String password)
+    public void addUser(String nif, String name, String surname, String mail, String password, int dinero)
     {
-        users.put(nif, new User(nif, name, surname, mail, password));
+        users.put(nif, new User(nif, name, surname, mail, password, dinero));
 
     }
 

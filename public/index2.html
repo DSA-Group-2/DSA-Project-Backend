@@ -5,31 +5,27 @@
 
     <link rel="stylesheet" href="css/styles.css">
 
-    <script src="js/users.js" defer></script>
+    <script src="js/usersLogIn.js" defer></script>
+
 </head>
 <body>
 <header>
-    <h1>Mínimo 1 DSA</h1>
+    <h1>LOG IN</h1>
 </header>
 
 <main>
-    <section class="intro">
-        <figure>
-            <p align="center"><img src="img/espinete.jpg" alt="Foto de Espinete" width="300"></p>
-        </figure>
-    </section>
+    <div id="loginBox">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Usuario">
+        <input type="password" id="password" placeholder="Contraseña">
+        <button id="loginBtn">Login</button>
+        <p id="loginError" style="color:red;"></p>
+    </div>
 
-    <hr>
-
-    <section class="content">
+    <section class="content" id="app" style="display:none;">
         <h2>Lista de Usuarios</h2>
-        <div id="users">
-            <p>Cargando usuarios...</p> </div>
+        <div id="users"></div>
     </section>
-
-
-
-
 
 
 </main>

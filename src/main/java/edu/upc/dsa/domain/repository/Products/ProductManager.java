@@ -12,9 +12,11 @@ import java.util.List;
 
 public interface ProductManager {
 
-    void addUser(String nif, String name, String surname, String mail, String password);
+    void addUser(String nif, String name, String surname, String mail, String password, int dinero);
     void addProduct(String id, String name, double price, String image_url);
     void addOrder(Order order);
+
+    boolean checkLogin(String name, String password);
 
     List<Product> getProductsByPriceDescendiente();
     List<Product> getProductsByPriceAscendiente();

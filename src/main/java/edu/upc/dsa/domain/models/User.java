@@ -10,13 +10,11 @@ public class User {
     private String name;
     private String surname;
     private String mail;
-
     private List<Order> ordersUser;
-
     private String password;
+    private int dinero;
 
-
-    public User(String nif, String name, String surname, String mail, String password)
+    public User(String nif, String name, String surname, String mail, String password, int dinero)
     {
         this.nif = nif;
         this.name = name;
@@ -24,8 +22,7 @@ public class User {
         this.mail = mail;
         this.ordersUser = new LinkedList<>();
         this.password = password;
-
-
+        this.dinero = dinero;
     }
 
     public User(){};
@@ -38,6 +35,7 @@ public class User {
     public String getSurname() {return surname;}
     public String getMail() {return mail;}
     public String getPassword() {return password;}
+    public int getDinero() {return dinero;}
 
 
 
