@@ -24,6 +24,8 @@ public class Main {
     // Base URI the Grizzly HTTP server will listen on
     public static final String BASE_URI = "http://localhost:8080/dsaApp/";
     final static Logger logger = Logger.getLogger(Main.class);
+
+
     /**
      * Starts Grizzly HTTP server exposing JAX-RS resources defined in this application.
      * @return Grizzly HTTP server.
