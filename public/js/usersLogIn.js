@@ -6,6 +6,7 @@ async function login() {
     const password = document.getElementById("password").value;
     const errormessage = document.getElementById("loginError");
     errormessage.textContent = "";
+    document.getElementById("registerHint").style.display = "none";
 
     if (!name || !password)
     {
@@ -29,6 +30,7 @@ async function login() {
 
         else if (response.status === 401) {
             errormessage.textContent = "Usuario o contraseña incorrectos";
+            document.getElementById("registerHint").style.display = "block";
         }
 
         else
@@ -42,6 +44,7 @@ async function login() {
 }
 
 document.getElementById("loginBtn").addEventListener("click", login);
+document.getElementById("goRegisterBtn").addEventListener("click", () => { window.location.href = "index3.html";});
 
 async function fetchUsers(path, containerId) {
     const container = document.getElementById(containerId);

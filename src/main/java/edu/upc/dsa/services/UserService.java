@@ -35,6 +35,7 @@ public class UserService {
 
     }
 
+    //LOGIN
     @POST
     @ApiOperation(value = "login", notes = "Comprobar usuario y contraseña")
     @ApiResponses(value = {
@@ -48,6 +49,20 @@ public class UserService {
             return Response.status(200).build();
         }
         return Response.status(401).build();
+    }
+
+    //REGISTER
+    @POST
+    @Path("/register")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response addUser(User user) {
+        if (this.pm.getUser(user.getNif()) != null) // ya existe ese nif, por tanto ya existe el usuario
+        {
+            return Response.status(409).build();
+        }
+        this.pm.addUser(user.getNif(), user.getName(), user.getSurname(),
+                user.getMail(), user.getPassword(), user.getDinero());
+        return Response.status(201).build();
     }
 
     @GET
