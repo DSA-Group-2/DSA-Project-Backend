@@ -23,6 +23,9 @@ async function login() {
 
         if (response.ok)
         {
+            const datos = await response.json();
+            sessionStorage.setItem("nif", datos.nif);
+            sessionStorage.setItem("usuario", datos.name);
             document.getElementById("loginBox").style.display = "none";
             document.getElementById("app").style.display = "block";
             fetchUsers("/", "users");

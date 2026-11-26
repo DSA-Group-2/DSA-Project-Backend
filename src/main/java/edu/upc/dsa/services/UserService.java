@@ -44,10 +44,28 @@ public class UserService {
     })
     @Path("/login")
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Response login(Credentials credentials) {
-        if (this.pm.checkLogin(credentials.getName(), credentials.getPassword())) {
-            return Response.status(200).build();
+
+        if (credentials == null) {
+            return Response.status(400).build();
         }
+
+        for (User user : this.pm.findAllUsers().values()) {
+
+            if (user.getName().equals(credentials.getName())
+                    && user.getPassword() != null
+                    && user.getPassword().equals(credentials.getPassword())) {
+
+                HashMap<String, String> datos = new HashMap<>();
+
+                datos.put("nif", user.getNif());
+                datos.put("name", user.getName());
+
+                return Response.status(200).entity(datos).build();
+            }
+        }
+
         return Response.status(401).build();
     }
 
@@ -198,12 +216,35 @@ public class UserService {
                 return Response.status(500).build();
         }
 
-        if (this.pm.getUser(order.getDni()) == null)
+        User user = this.pm.getUser(order.getDni());
+
+        if (user == null)
             return Response.status(404).build();
 
+        double precioTotal = 0;
+
         for (String idProduct : order.getProductList().keySet()) {
-            if (this.pm.getProduct(idProduct) == null)
+
+            Product producto = this.pm.getProduct(idProduct);
+
+            if (producto == null)
                 return Response.status(404).build();
+
+            int cantidad = order.getProductList().get(idProduct);
+
+            precioTotal = precioTotal + producto.getPrice() * cantidad;
+        }
+        if (user.getDinero() < precioTotal) {
+            return Response.status(409).build();
+        }
+
+        user.setDinero(user.getDinero() - precioTotal);
+
+        for (String idProducto : order.getProductList().keySet()) {
+
+            int cantidad = order.getProductList().get(idProducto);
+
+            user.addProductoInventario(idProducto, cantidad);
         }
 
         this.pm.addOrder(order);

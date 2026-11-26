@@ -12,7 +12,7 @@ import java.util.List;
 
 public interface ProductManager {
 
-    void addUser(String nif, String name, String surname, String mail, String password, int dinero);
+    void addUser(String nif, String name, String surname, String mail, String password, double dinero);
     void addProduct(String id, String name, double price, String image_url);
     void addOrder(Order order);
 

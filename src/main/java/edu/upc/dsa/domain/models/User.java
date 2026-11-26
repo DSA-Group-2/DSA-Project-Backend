@@ -3,6 +3,7 @@ package edu.upc.dsa.domain.models;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.HashMap;
 
 public class User {
 
@@ -12,9 +13,10 @@ public class User {
     private String mail;
     private List<Order> ordersUser;
     private String password;
-    private int dinero;
+    private double dinero;
+    private HashMap<String, Integer> inventario = new HashMap<>();
 
-    public User(String nif, String name, String surname, String mail, String password, int dinero)
+    public User(String nif, String name, String surname, String mail, String password, double dinero)
     {
         this.nif = nif;
         this.name = name;
@@ -35,8 +37,18 @@ public class User {
     public String getSurname() {return surname;}
     public String getMail() {return mail;}
     public String getPassword() {return password;}
-    public int getDinero() {return dinero;}
+    public double getDinero() {return dinero;}
+    public void setDinero(double dinero) {this.dinero = dinero;}
+    public HashMap<String, Integer> getInventario() {return inventario;}
 
+    public void addProductoInventario(String idProducto, int cantidad) {
+
+        if (inventario.containsKey(idProducto)) {
+            inventario.put(idProducto, inventario.get(idProducto) + cantidad);
+        } else {
+            inventario.put(idProducto, cantidad);
+        }
+    }
 
 
     public List<Order> getUserOrders()

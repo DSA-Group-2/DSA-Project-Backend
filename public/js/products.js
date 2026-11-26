@@ -1,12 +1,28 @@
 const API_URL = "http://localhost:8080/dsaApp/product";
-// Usuario de prueba
-let usuario = "NIF1";
-let monedas = 100;
-let inventario = [];
 
-document.getElementById("usuario").textContent = usuario;
+let usuario = sessionStorage.getItem("nif");
+let nombreUsuario = sessionStorage.getItem("usuario");
+let monedas = 0;
+let inventario = {};
+let nombresProductos = {};
 
+//cargar las monedas
+async function cargarUsuario() {
+    const response = await fetch("http://localhost:8080/dsaApp/user/" + usuario);
+    if (response.ok) {
+        const datos = await response.json();
+        monedas = datos.dinero;
+        document.getElementById("monedas").textContent = monedas;
+        inventario = datos.inventario || {};
+
+        mostrarInventario();
+    }
+}
+
+document.getElementById("usuario").textContent = nombreUsuario;
 document.getElementById("monedas").textContent = monedas;
+cargarUsuario();
+
 
 async function fetchProducts(path, containerId) {
     const container = document.getElementById(containerId);
@@ -23,6 +39,7 @@ async function fetchProducts(path, containerId) {
         container.innerHTML = "";
 
         data.forEach(product => {
+            nombresProductos[product.id] = product.name;
             const card = document.createElement('div');
             card.classList.add('track-card');
 
@@ -37,6 +54,7 @@ async function fetchProducts(path, containerId) {
                     <button onclick="comprar('${product.id}', ${product.price}, '${product.name}')">Comprar</button>                `;
             container.appendChild(card);
         });
+        mostrarInventario();
 
     } catch (error) {
         console.error("Error al cargar products:", error);
@@ -68,12 +86,10 @@ async function comprar(idProducto, price,name) {
     });
 
     if (response.status === 201) {
-        monedas = monedas - price;
-        document.getElementById("monedas").textContent = monedas;
-
-        inventario.push(name);
-        mostrarInventario();
-
+        await cargarUsuario();
+        alert("Has comprado " + name);
+    } else if (response.status === 409) {
+        alert("No tienes suficientes monedas");
     } else {
         alert("Error al realizar la compra");
     }
@@ -81,28 +97,12 @@ async function comprar(idProducto, price,name) {
 
 function mostrarInventario() {
     const lista = document.getElementById("inventario");
-
-    lista.innerHTML = ""; //borrar inventario al actualizar páginal
-
-    const cantidades = {};
-
-    inventario.forEach(producto => {
-        if (cantidades[producto]) {
-            cantidades[producto]++;
-        } else {
-            cantidades[producto] = 1;
-        }
-
-    });
-
-    for (let producto in cantidades) {
-
+    lista.innerHTML = ""; //limpia inventario anterior
+    for (let idProducto in inventario) {
         const elemento = document.createElement("li");
-
-        elemento.textContent = producto + " x" + cantidades[producto];
-
+        let nombre = nombresProductos[idProducto] || idProducto;
+        elemento.textContent = nombre + " x" + inventario[idProducto];
         lista.appendChild(elemento);
-
     }
 }
 

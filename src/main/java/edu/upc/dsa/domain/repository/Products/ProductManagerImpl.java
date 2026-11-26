@@ -219,7 +219,7 @@ public class ProductManagerImpl implements ProductManager {
     }
 
     @Override
-    public void addUser(String nif, String name, String surname, String mail, String password, int dinero)
+    public void addUser(String nif, String name, String surname, String mail, String password, double dinero)
     {
         users.put(nif, new User(nif, name, surname, mail, password, dinero));
 

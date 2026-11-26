@@ -25,7 +25,6 @@ public class Main {
     public static final String BASE_URI = "http://localhost:8080/dsaApp/";
     final static Logger logger = Logger.getLogger(Main.class);
 
-
     /**
      * Starts Grizzly HTTP server exposing JAX-RS resources defined in this application.
      * @return Grizzly HTTP server.
